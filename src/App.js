@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar";
+import ReactCountryFlag from "react-country-flag";
 
 function App() {
+
+  function changeLanguage(lang) {
+    //...code for changing site language
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <div className="flags">
+          <button onClick={() => { changeLanguage('polski') }} alt="zmień język na polski">
+            <ReactCountryFlag countryCode="PL" style={{ width: '1.5rem', height: '1.5rem' }} svg />
+          </button>
+          <button onClick={() => { changeLanguage('niemiecik') }} alt="sprechen sie deutsch">
+            <ReactCountryFlag countryCode="DE" style={{ width: '1.5rem', height: '1.5rem' }} svg />
+          </button>
+          <button onClick={() => { changeLanguage('angielksi') }} alt="change site lansuage to english">
+            <ReactCountryFlag countryCode="GB" style={{ width: '1.5rem', height: '1.5rem' }} svg />
+          </button>
+        </div>
+        <Navbar />
+        <h1>ONCOMEDICA<br /><span>gabinety lekarskie</span></h1>
       </header>
-    </div>
+
+      <section className="offer">
+        <p className="offer-caption">
+          Oncomedica jest nowym miejscem na mapie Zgorzelca, które zrzesza lekarzy od wielu lat dbających o zdrowie pacjentów. Chcemy, by każda osoba odwiedzająca nasze gabinety otrzymała kompleksową pomoc i bezpieczeństwo.
+        </p>
+      </section>
+
+      <footer>Adrianna Gryglak for Oncomedica</footer>
+    </>
   );
 }
 
