@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# website for medical clinic Oncomedica in the making
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
