@@ -8,6 +8,7 @@ export default function Navbar() {
         setNavOpen(prev => !prev);
     }
 
+    
     return (
         <nav className={`${navOpen ? "nav-open" : ""}`}>
             <div className={`hamburger ${navOpen ? "nav-open" : "nav-closed"}`} onClick={navOnClick}>
@@ -16,14 +17,10 @@ export default function Navbar() {
                 <div className="burger3"></div>
             </div>
             <ul>
+                <li><a href="#offer">oferta</a></li>
                 <li>o nas</li>
-                <li>oferta</li>
                 <li>kontakt</li>
             </ul>
         </nav>
     )
 }
-
-//TO DO
-//if desktop - render without hamburger, diffrent styling for ul and maybe logo image
-//listen for screen resize 

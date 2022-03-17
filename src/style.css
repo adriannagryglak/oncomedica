@@ -4,11 +4,17 @@ body,
   font-family: 'Raleway', sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 button {
   border: none;
   background: none;
+}
+
+.blur {
+  filter: blur(3px);
+  pointer-events: none;
 }
 
 .flags {
@@ -24,9 +30,9 @@ button {
 
 header {
   background-image: url('./assets/hero-img.jpg');
-  background-position: center;
+  background-position: center top;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 nav {
@@ -73,7 +79,7 @@ nav.nav-open {
 }
 
 .hamburger.nav-open .burger1 {
-  transform: translateY(0.5rem) rotate(45deg) scale(1.5);
+  transform: translateY(0.5rem) rotate(45deg);
   background: linear-gradient(90deg, #a3182f 50%, #2e6161 50%);
 }
 
@@ -82,7 +88,7 @@ nav.nav-open {
 }
 
 .hamburger.nav-open .burger3 {
-  transform: translateY(-0.5rem) rotate(-45deg) scale(1.5);
+  transform: translateY(-0.5rem) rotate(-45deg);
   background: linear-gradient(
     90deg,
     #2e6161 calc(50% - 0.1875rem),
@@ -114,23 +120,189 @@ nav ul li {
 
 h1 {
   position: absolute;
-  font-weight: 600;
-  text-align: center;
-  top: 60%;
-  left: 50%;
+  background-image: url('./assets/h2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 68%;
+  left: 64%;
   transform: translate(-50%, -50%);
-  padding: 26px;
   z-index: 1;
+  color: rgba(0, 0, 0, 0);
 }
 
-h1 span {
-  font-size: 1.5rem;
+@media (min-width: 700px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+  nav {
+    font-size: 1.7rem;
+    padding: 40px;
+  }
+  .hamburger {
+    width: 2rem;
+    height: 2rem;
+    right: -4.5rem;
+  }
+
+  .hamburger div {
+    width: 2rem;
+  }
+  .hamburger.nav-open .burger1 {
+    transform: translateY(0.75rem) rotate(45deg);
+  }
+  .flags {
+    padding: 40px;
+  }
+  .flags img {
+    margin: 0 20px;
+  }
+}
+
+/*offer*/
+
+#offer * {
+  transition: all 0.5s ease;
 }
 
 .offer-caption {
   padding: 40px;
-  font-size: 1.2rem;
   text-align: center;
+}
+
+.offer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+}
+.offer-btn {
+  margin: 10px;
+  height: 200px;
+  width: 200px;
+  color: white;
+  background-color: rgb(10 100 108);
+  padding: 20px;
+}
+
+#offer h2 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.pop-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 8px 32px 0 rgb(118 118 118 / 10%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  height: 80vh;
+  width: 80vw;
+  z-index: 10;
+  padding: 20px 40px;
+  font-size: 0.8rem;
+}
+
+.pop-up li {
+  margin: 10px 0;
+}
+.pop-up li::before {
+  content: "• ";
+  color: #a3182f;
+}
+.pop-up ul{
+list-style-type: none;
+}
+
+.pop-up h4 {
+  font-size: 1rem;
+  padding: 10px 0;
+}
+
+button h3 {
+  text-transform: uppercase;
+  font-weight: 200;
+}
+
+.wizyta {
+  background-color: #0a646c;
+  color: white;
+  padding: 15px;
+  font-size: 0.75rem;
+  border-radius: 50px;
+  margin: 20px 0;
+}
+
+.wizyta:hover {
+  background: none;
+  color: inherit;
+  border: 1px solid #a3182f;
+  box-shadow: 1px 1px 3px black;
+}
+
+button.logo-btn:hover {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(73%) saturate(7129%)
+    hue-rotate(345deg) brightness(66%) contrast(85%);
+}
+
+.logo-btn {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  transform-origin: center;
+  animation: toExit 2s ease forwards;
+}
+
+.logo-btn img {
+  position: absolute;
+  height: 1.5rem;
+}
+
+.blue {
+  bottom: 0;
+  left: 0;
+  transform: translate(25%, -25%);
+}
+
+.red {
+  top: 0;
+  right: 0;
+  transform: translate(-25%, 25%);
+}
+
+.logo-btn.go-back .red {
+  opacity: 0;
+}
+
+.logo-btn.go-back {
+  animation: toArrow 1.5s ease forwards;
+}
+
+@keyframes toExit {
+  100% {
+    transform: translateX(50vw) rotate(45deg);
+    filter: brightness(0) saturate(100%) invert(31%) sepia(53%)
+      hue-rotate(136deg) brightness(94%) contrast(102%) saturate(612%);
+  }
+}
+
+@keyframes toArrow {
+  0% {
+    transform: translateX(50vw) rotate(45deg);
+    filter: brightness(0) saturate(100%) invert(31%) sepia(53%)
+      hue-rotate(136deg) brightness(94%) contrast(102%) saturate(612%);
+  }
+  100% {
+    transform: translateX(0) rotate(-135deg);
+  }
 }
 
 footer {

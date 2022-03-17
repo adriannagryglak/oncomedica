@@ -1,35 +1,45 @@
 import Navbar from "./components/Navbar";
 import ReactCountryFlag from "react-country-flag";
+import { useState } from "react";
+import { appData } from './data';
+import { useMediaPredicate } from "react-media-hook";
+import Offer from "./components/Offer";
 
 function App() {
 
+  const [language, setLanguage] = useState(navigator.language);
+  const data = appData[language];
+
   function changeLanguage(lang) {
-    //...code for changing site language
+    setLanguage(lang)
   }
+
+  let biggerThan700 = useMediaPredicate('(min-width: 700px)');
+  const flagStylesSmall = { width: '1.5rem', height: '1.5rem' };
+  const flagStylesBig = { width: '2.5rem', height: '2.5rem' };
 
   return (
     <>
       <header>
         <div className="flags">
-          <button onClick={() => { changeLanguage('polski') }} alt="zmień język na polski">
-            <ReactCountryFlag countryCode="PL" style={{ width: '1.5rem', height: '1.5rem' }} svg />
-          </button>
-          <button onClick={() => { changeLanguage('niemiecik') }} alt="sprechen sie deutsch">
-            <ReactCountryFlag countryCode="DE" style={{ width: '1.5rem', height: '1.5rem' }} svg />
-          </button>
-          <button onClick={() => { changeLanguage('angielksi') }} alt="change site lansuage to english">
-            <ReactCountryFlag countryCode="GB" style={{ width: '1.5rem', height: '1.5rem' }} svg />
-          </button>
+          {!'pl-PL'.includes(language) &&
+            <button onClick={() => { changeLanguage('pl') }} alt="zmień język na polski">
+              <ReactCountryFlag countryCode="PL" style={biggerThan700 ? flagStylesBig : flagStylesSmall} svg />
+            </button>}
+          {!'de-DE'.includes(language) &&
+            <button onClick={() => { changeLanguage('de') }} alt="sprechen deutsch">
+              <ReactCountryFlag countryCode="DE" style={biggerThan700 ? flagStylesBig : flagStylesSmall} svg />
+            </button>}
+          {!'en-US'.includes(language) &&
+            <button onClick={() => { changeLanguage('en') }} alt="change language to english">
+              <ReactCountryFlag countryCode="GB" style={biggerThan700 ? flagStylesBig : flagStylesSmall} svg />
+            </button>}
         </div>
         <Navbar />
-        <h1>ONCOMEDICA<br /><span>gabinety lekarskie</span></h1>
+        <h1>{data.h1}</h1>
       </header>
 
-      <section className="offer">
-        <p className="offer-caption">
-          Oncomedica jest nowym miejscem na mapie Zgorzelca, które zrzesza lekarzy od wielu lat dbających o zdrowie pacjentów. Chcemy, by każda osoba odwiedzająca nasze gabinety otrzymała kompleksową pomoc i bezpieczeństwo.
-        </p>
-      </section>
+      <Offer language={language} data={data} />
 
       <footer>Adrianna Gryglak for Oncomedica</footer>
     </>
