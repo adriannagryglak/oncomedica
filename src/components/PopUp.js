@@ -18,23 +18,23 @@ export default function PopUp(props) {
     }
 
     let popUp = appointmentPanel ? 
-        (<>
+        (<div>
           <PopUpBtn appointmentBtn={true} backToPopUp={backToPopUp} />
-          <h4>{props.data.doctor}</h4>
-          <p>gabinet przyjmuje: {props.data.gabinet}</p>
-          <p>rezerwacja czynna: {props.data.recepcja}</p>
-          <p>nr telefonu: {props.data.tel}</p>
-          {props.data.link && <a href={props.data.link}>umów się przez znanylekarz.pl</a>}
-        </>)
-        : (<>
+          <h4>dr {props.data.doctor}</h4>
+          <p>gabinet przyjmuje: <br/><span>{props.data.gabinet}</span></p>
+          <p>rezerwacja czynna: <br/><span>{props.data.recepcja}</span></p>
+          <p>telefon: <br/><span>{props.data.tel}</span></p>
+          {props.data.link && <a href={props.data.link}>znanylekarz.pl</a>}
+        </div>)
+        : (<div >
             <PopUpBtn appointmentBtn={false} remove={props.remove} />
-            <h4>{props.data.doctor}</h4>
+            <h4>dr {props.data.doctor}</h4>
             {elements}
             <button className="wizyta" onClick={makeReservation}>UMOW WIZYTE</button>
-        </>);
+        </div>);
 
     return (
-        <div className='pop-up'>
+        <div className='pop-up' >
             {popUp}
         </div>
     )

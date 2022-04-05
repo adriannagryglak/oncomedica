@@ -13,14 +13,15 @@ export default function Offer(props) {
         setPopUp(null);
     }
 
+    //petla po data i kazdemu button
     return (
-        <section id="offer">
+        <section className="offer">
             <p className={popUp ? 'blur offer-caption' : 'offer-caption' }>
                 {props.data.p}
             </p>
+            <div className="offer-container" id="offer">
             <h2 className={popUp && 'blur'}>jak możemy pomoc?</h2>
-            <div className="offer-container">
-                {popUp && <PopUp id={popUp} remove={hideDetails} data={props.data.offer[popUp]} />}
+                {popUp && <PopUp id={popUp} remove={hideDetails} data={props.data.details[popUp]} />}
                 <button className={`offer-btn ${popUp && 'blur'}`} id="chirurgia" onClick={(e) => { showDetails(e.currentTarget.id) }}>
                     <h3>chirurgia ogólna i onkologiczna</h3>
                 </button>

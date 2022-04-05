@@ -18,8 +18,8 @@ export default function Navbar() {
             </div>
             <ul>
                 <li><a href="#offer">oferta</a></li>
-                <li>o nas</li>
-                <li>kontakt</li>
+                <li><a href="#contact">kontakt</a></li>
+                <li><a href="#about">o nas</a></li>
             </ul>
         </nav>
     )
