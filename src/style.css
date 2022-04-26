@@ -1,15 +1,17 @@
 body,
 * {
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  
 }
 
-section{
+html {
+  scroll-behavior: smooth;
+}
+
+section {
   background-color: #f7f7f7;
 }
 
@@ -24,39 +26,48 @@ button {
 }
 
 .flags {
-  float: right;
-  padding: 20px;
+  padding: 15px 0 40px 0;
 }
 
 .flags img {
   margin: 0 10px;
   filter: saturate(80%);
   opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.flags img:hover{
+  transform: scale(1.1);
 }
 
 header {
-  background-image: url('./assets/hero-img.jpg');
+  background-image: url("./assets/hero-img.jpg");
   background-position: center top;
   background-size: cover;
   min-height: 100vh;
+  position: relative;
 }
+
 
 nav {
   padding: 20px 30px;
   transform: translateX(-100%);
   position: relative;
-  width: 50%;
   height: 90%;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   backdrop-filter: blur(10px);
   z-index: 10;
   font-size: 1.2rem;
   font-weight: 300;
+  z-index: 20;
+  width: 60%;
 }
 
 nav.nav-open {
   transform: translateX(0);
 }
+
 
 .hamburger {
   height: 1.5rem;
@@ -125,22 +136,42 @@ nav ul li {
   cursor: pointer;
 }
 
-nav ul a{
+nav ul a {
   text-decoration: none;
   color: inherit;
+  
+}
+nav ul a:hover{
+  color:#0a646c;
+  font-weight: bold;
 }
 
 h1 {
   position: absolute;
-  background-image: url('./assets/h2.png');
+  background-image: url("./assets/h2.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  top: 68%;
-  left: 64%;
-  transform: translate(-50%, -50%);
+  top: 58%;
+  left: 44%;
   z-index: 1;
   color: rgba(0, 0, 0, 0);
+  margin-right: 20px;
+  user-select: none;
+}
+
+.offer-caption {
+  opacity: 0;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  animation: appear 1s 2s ease forwards;
+}
+
+@keyframes appear{
+  100%{
+    opacity: 1;
+  }
 }
 
 @media (min-width: 700px) {
@@ -149,16 +180,18 @@ h1 {
   }
   nav {
     font-size: 1.7rem;
+  
   }
-  nav ul li{
+  nav ul li {
     padding: 40px;
+    white-space: nowrap;
   }
   .hamburger {
     width: 2rem;
     height: 2rem;
     right: -4.5rem;
+    margin-top: 25px;
   }
-
   .hamburger div {
     width: 2rem;
   }
@@ -173,27 +206,96 @@ h1 {
   }
 }
 
+@media (min-width: 992px) {
+  header {
+    background: none;
+    position: relative;
+  }
+
+  .hero-container{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    right: 0;
+    overflow: hidden;
+  }
+
+  .hero-container img{
+    height: 100%;
+    position: absolute;
+    right: 0;
+  }
+
+  @keyframes rollUp{
+    100%{
+      transform: translateY(calc(-100% + 120px));
+    }
+  }
+
+  nav::after{
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 110%;
+    left: -10%;
+    background-color: #0a646c;
+    opacity: 0.15;
+    z-index: -10;
+    top: 0;
+    animation: rollUp 1.5s 1s ease forwards;
+    transition: all 0.5s ease;
+  }
+
+  h1 {
+    top: 30%;
+    left: 10%;
+    width: 400px;
+  }
+
+  p.offer-caption {
+    text-align: left;
+    background-color: white;
+    position: absolute;
+    top: 55%;
+    max-width: 400px;
+    left: 10.5%;
+    padding: 0;
+  }
+
+  nav {
+    transform: none;
+    width: auto;
+    backdrop-filter: none;
+    height: 120px;
+    font-size: 1.5rem;
+    display: flex;
+  }
+
+  nav ul {
+    display: flex;
+    padding: 0;
+  }
+
+  nav ul li {
+    padding: 20px;
+  }
+
+  nav:hover::after{
+    opacity: 0;
+  }
+
+  .flags {
+    padding: 15px 0;
+  }
+
+}
+
 /*offer*/
 
-.offer * {
-  transition: all 0.5s ease;
-}
-
-.offer .offer-caption {
-  padding: 40px;
-  text-align: center;
-  background-color: white;
-}
-
-.offer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
+#offer{
   position: relative;
-  padding-bottom: 90px;
 }
+
 .offer-btn {
   margin: 10px;
   height: 200px;
@@ -201,6 +303,22 @@ h1 {
   color: white;
   background-color: rgb(10 100 108);
   padding: 20px;
+  transition: all 0.5s ease;
+}
+
+.offer-btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+  padding-bottom: 70px;
 }
 
 h2 {
@@ -221,14 +339,13 @@ h2 {
   width: 85vw;
   z-index: 10;
   padding: 20px 40px 30px 40px;
-
 }
 
 .pop-up li {
   margin: 10px 0;
 }
 .pop-up li::before {
-  content: '• ';
+  content: "• ";
   color: #a3182f;
 }
 .pop-up ul {
@@ -247,6 +364,7 @@ button h3 {
 
 .wizyta {
   background-color: #0a646c;
+  border: 1px solid #0a646c;
   color: white;
   padding: 15px;
   font-size: 1rem;
@@ -254,15 +372,14 @@ button h3 {
   margin: 20px 0;
 }
 
-.wizyta:hover {
+.wizyta:hover,
+.pop-up a:hover {
   background: none;
   color: inherit;
   border: 1px solid #a3182f;
-  box-shadow: 1px 1px 3px black;
 }
 
-
-.pop-up a{
+.pop-up a {
   text-decoration: none;
   background-color: #0a646c;
   color: white;
@@ -272,15 +389,10 @@ button h3 {
   display: inline-block;
 }
 
-.pop-up span{
+.pop-up span {
   margin: 10px 0;
   display: block;
   font-weight: bolder;
-}
-
-button.logo-btn:hover {
-  filter: brightness(0) saturate(100%) invert(14%) sepia(73%) saturate(7129%)
-    hue-rotate(345deg) brightness(66%) contrast(85%);
 }
 
 .logo-btn {
@@ -290,6 +402,7 @@ button.logo-btn:hover {
   transform-origin: center;
   animation: toExit 2s ease forwards;
   user-select: none;
+  cursor: pointer;
 }
 
 .logo-btn img {
@@ -336,78 +449,127 @@ button.logo-btn:hover {
   }
 }
 
-@media (min-width: 700px){
-  h2{
+@media (min-width: 700px) {
+  h2 {
     font-size: 1.7rem;
     width: 100%;
     padding: 100px 0 70px 0;
   }
 
-  .offer-caption{
+  .offer-caption {
     font-size: 1.5rem;
     padding: 70px;
   }
-  .offer-btn{
+  .offer-btn {
     font-size: 1.3rem;
     height: 300px;
     width: 300px;
     margin: 20px;
   }
-  .pop-up{
+  .pop-up {
     width: 65vw;
     font-size: 1.3rem;
   }
 
-  .pop-up h4{
+  .pop-up h4 {
     font-size: 1.5rem;
     margin: 40px 0;
   }
 
-  .wizyta{
+  .wizyta {
     font-size: 1.3rem;
     margin: 40px 0;
   }
 
+  .buttons-container{
+    padding-bottom: 100px;
+  }
 }
 
-#contact{
+@media (min-width: 992px) {
+.pop-up{
+  padding: 40px 60px 60px 60px;
+  background: rgb(255 255 255 /88%);
+}
+.pop-up p,
+.pop-up h4,
+.pop-up ul, 
+.pop-up a{
   text-align: center;
 }
 
-.contact-container p {
+.wizyta,
+.pop-up a{
+  display:block;
+  margin: 40px auto;
+  width: fit-content;
+}
+
+.offer h2,
+#contact h2{
+  padding: 120px 0 100px;
+}
+
+.offer-container{
+  padding-bottom: 100px;
+}
+.buttons-container{
+  padding-bottom: 120px;
+}
+
+}
+#contact {
+  text-align: center;
+  background-color: inherit;
+}
+
+.contact-container li {
   margin: 10px 0;
 }
 
-.contact-container a{
-  color: #0a646c;
-  border: 1px solid #0a646c;
+.contact-container li.li-btn{
+  margin: 40px 0;
+}
+
+.contact-container a {
+  background-color: #0a646c;
+  color: white;
+  padding: 15px;
+  font-size: 1rem;
   border-radius: 50px;
-  padding: 10px;
   text-decoration: none;
-  display: inline-block;
-  font-size: 0.75rem;
-  margin: 10px;
+  transition: all 0.5s ease;
 }
 
-.map-container{
-  margin-top: 70px;
+.contact-container a:hover {
+  background: none;
+  color: inherit;
+  border: 1px solid #a3182f;
 }
 
-@media (min-width: 700px){
-.contact-container p{
-  font-size: 1.5rem;
+.map-container {
+  margin: 50px 0;
 }
 
-.contact-container a{
-  padding: 20px;
-  font-size: 1.3rem;
+@media (min-width: 700px) {
+  .contact-container li {
+    font-size: 1.5rem;
+    margin: 20px 0;
+  }
+
+  .contact-container a {
+    padding: 20px;
+    font-size: 1.3rem;
+  }
+
+  .map-container {
+    margin: 50px 40px;
+  }
 }
 
-}
-
-
-.gallery{
+.gallery {
   position: relative;
+  cursor: pointer;
 }
 
 .slide {
@@ -437,19 +599,24 @@ button.logo-btn:hover {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY( -50%);
+  transform: translateY(-50%);
   z-index: 10;
 }
 
 #nextButton svg,
-#previousButton svg{
-height: 2.5rem;
-width: 2.5rem;
-fill:#0a646c
+#previousButton svg {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: #0a646c;
 }
 
-#about{
+#about {
   overflow: hidden;
+}
+
+#about h2{
+  cursor: pointer;
+  padding: 70px 0;
 }
 
 .doctors-container {
@@ -461,12 +628,12 @@ fill:#0a646c
   width: 100%;
 }
 
-.doctors-container.closed{
+.doctors-container.closed {
   max-height: 0px;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
 
-.doctor{
+.doctor {
   overflow: hidden;
   transition: max-height 1s ease-in-out;
   background-color: white;
@@ -474,37 +641,49 @@ fill:#0a646c
   padding: 20px;
 }
 
-.doctor h3{
+.doctor h3 {
   padding: 20px;
 }
 
-.doctor img{
+.doctor img {
   width: 80px;
   float: left;
   margin: 20px 30px 15px 0;
-}
-
-@media(min-width: 700px){
-
-  .doctor{
-    margin: 20px 70px;
-    font-size: 1.3rem;
-    padding: 50px;
-  }
-
-  .doctor img{
-    width: 130px;
-  }
-
-  footer{
-    padding: 15px;
-    font-size: 1rem;
-  }
 }
 
 footer {
   text-align: center;
   padding: 7px;
   font-size: 0.75rem;
+}
+
+@media (min-width: 700px) {
+  .doctor {
+    margin: 20px 70px;
+    font-size: 1.3rem;
+    padding: 50px;
+  }
+
+  .doctor img {
+    width: 130px;
+  }
+
+  footer {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+.slide{
+  min-height: 60vh;
+}
+
+#about h2{
+  padding: 120px 0 100px 0;
+}
+.map-container {
+  margin: 70px 40px;
+}
 }
 

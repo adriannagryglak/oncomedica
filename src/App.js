@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import ReactCountryFlag from "react-country-flag";
 import { useState } from "react";
 import { appData } from './data';
 import { appDataEn } from './dataEnglish';
@@ -9,6 +8,7 @@ import Offer from "./components/Offer";
 import Contact from "./components/Contact";
 import Gallery from "./components/Gallery";
 import About from "./components/About";
+import Hero from "./components/Hero";
 
 function App() {
 
@@ -26,36 +26,26 @@ function App() {
     setLanguage(lang)
   }
 
+
+  //media queries & resize listener
   let biggerThan700 = useMediaPredicate('(min-width: 700px)');
   const flagStylesSmall = { width: '1.5rem', height: '1.5rem' };
   const flagStylesBig = { width: '2.5rem', height: '2.5rem' };
+  let biggerThan992 = useMediaPredicate('(min-width: 992px)');
 
-  let data = language === 'pl' ? appData :
-              language === 'de' ? appDataGe : appDataEn;
+  let data = 'pl-PL'.includes(language) ? appData :
+             'de-DE'.includes(language) ? appDataGe : appDataEn;
 
   return (
     <>
       <header>
-        <div className="flags">
-          {!'pl-PL'.includes(language) &&
-            <button onClick={() => { changeLanguage('pl') }} alt="zmień język na polski">
-              <ReactCountryFlag countryCode="PL" style={biggerThan700 ? flagStylesBig : flagStylesSmall} svg />
-            </button>}
-          {!'de-DE'.includes(language) &&
-            <button onClick={() => { changeLanguage('de') }} alt="sprechen deutsch">
-              <ReactCountryFlag countryCode="DE" style={biggerThan700 ? flagStylesBig : flagStylesSmall} svg />
-            </button>}
-          {!'en-US'.includes(language) &&
-            <button onClick={() => { changeLanguage('en') }} alt="change language to english">
-              <ReactCountryFlag countryCode="GB" style={biggerThan700 ? flagStylesBig : flagStylesSmall} svg />
-            </button>}
-        </div>
-        <Navbar />
+        {biggerThan992 && <Hero />}
+        <Navbar isScreen={biggerThan992} lang={language} onClick={changeLanguage} style={biggerThan700 ? flagStylesBig : flagStylesSmall}/>
         <h1>{data.h1}</h1>
       </header>
-
+      <p className={'offer-caption' }>{data.p}</p>
       <Offer data={data} />
-      <Gallery />
+      <Gallery isScreen={biggerThan992}/>
       <About  data={data.details}/>
       <Contact data={data.contact}/>
       <footer>Oncomedica  gabinety lekarskie  |  adrianna.juda@live.com</footer>
