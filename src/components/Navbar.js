@@ -32,9 +32,9 @@ export default function Navbar(props) {
                         </button>}
                 </div>
                 <ul>
-                    <li><a href="#offer">oferta</a></li>
-                    <li><a href="#contact">kontakt</a></li>
-                    <li><a href="#about">o nas</a></li> 
+                    <li><a href="#offer">{props.data.offer[0]}</a></li>
+                    <li><a href="#contact">{props.data.contact[0]}</a></li>
+                    <li><a href="#about">{props.data.about[0]}</a></li> 
                 </ul>
         </nav>
     )

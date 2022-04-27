@@ -40,14 +40,14 @@ function App() {
     <>
       <header>
         {biggerThan992 && <Hero />}
-        <Navbar isScreen={biggerThan992} lang={language} onClick={changeLanguage} style={biggerThan700 ? flagStylesBig : flagStylesSmall}/>
+        <Navbar isScreen={biggerThan992} lang={language} onClick={changeLanguage} data={data.sections} style={biggerThan700 ? flagStylesBig : flagStylesSmall}/>
         <h1>{data.h1}</h1>
       </header>
       <p className={'offer-caption' }>{data.p}</p>
       <Offer data={data} />
       <Gallery isScreen={biggerThan992}/>
-      <About  data={data.details}/>
-      <Contact data={data.contact}/>
+      <About  data={data.details} h2={data.sections.about[1]}/>
+      <Contact data={data.contact} btnText={data.appointment} h2={data.sections.contact[1]}/>
       <footer>Oncomedica  gabinety lekarskie  |  adrianna.juda@live.com</footer>
     </>
   );

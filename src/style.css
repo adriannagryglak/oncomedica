@@ -325,7 +325,7 @@ h2 {
   font-size: 1.2rem;
   text-transform: uppercase;
   font-weight: 300;
-  padding: 70px 0 40px 0;
+  padding: 70px 10px 40px 10px;
   text-align: center;
 }
 
@@ -462,9 +462,9 @@ button h3 {
   }
   .offer-btn {
     font-size: 1.3rem;
-    height: 300px;
-    width: 300px;
-    margin: 20px;
+    height: 250px;
+    width: 250px;
+    margin: 40px 10px;
   }
   .pop-up {
     width: 65vw;
@@ -482,7 +482,7 @@ button h3 {
   }
 
   .buttons-container{
-    padding-bottom: 100px;
+    padding: 0 40px 100px 40px;
   }
 }
 
@@ -616,7 +616,7 @@ button h3 {
 
 #about h2{
   cursor: pointer;
-  padding: 70px 0;
+  padding: 70px 10px;
 }
 
 .doctors-container {

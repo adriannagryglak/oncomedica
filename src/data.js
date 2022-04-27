@@ -1,18 +1,17 @@
 import gupta from './assets/gupta.jpg';
+import rojek from './assets/rojek.jpg';
+import mazur from './assets/mazur.jpg';
+import sozanski from './assets/sozanski.png';
 
 export const appData = {
         h1: 'Oncomedica gabinety lekarskie',
-        h2: 'oferta',
-        //image as h2 
-        //jak mozemy pomoc
-        //poznajmy sie
-        //skontaktujmy sie
-        //nawigacja 3 podpunkty
-        //images and alts to them
-        //umow wizyte
-        //szczegoly umowienia wizyta
-        //znany lekarz text
-
+        sections : {
+            offer: ['oferta','jak możemy pomóc?'],
+            about: ['o nas', 'poznajmy się'],
+            contact: ['kontakt', 'tu nas znajdziesz'],
+        },
+        appointment: 'umów wizytę',
+        'appointment-details': ['gabinet przyjmuje:', 'rejestracja czynna:', 'telefon:'],
         p: 'Oncomedica jest nowym miejscem na mapie Zgorzelca, które zrzesza lekarzy od wielu lat dbających o zdrowie pacjentów. Chcemy, by każda osoba odwiedzająca nasze gabinety otrzymała kompleksową pomoc i bezpieczeństwo.',
         contact: {
             title: 'ONCOMEDICA gabinety lekarskie',
@@ -22,6 +21,7 @@ export const appData = {
         },
         details: {
             'chirurgia' : {
+                fullName : 'chirurgia ogólna i onkologiczna',
                 list: ['Konsultacje w zakresie chirurgii ogólnej oraz chirurgii onkologicznej',
                         'Dermatoskopia - Badanie zmian barwnikowych i znamion dermatoskopem',
                         'Diagnostyka i leczenie chorób piersi',
@@ -32,12 +32,14 @@ export const appData = {
                         ],
                 doctor: 'Anil Gupta',
                 doctorImg : gupta,
-                gabinet: 'pn. do pt',
+                gabinet: 'od poniedziałku do piątku',
                 recepcja: ' od 15:00 do 19:00',
+                tel: '+48 691 493 757',
                 link: 'https://www.znanylekarz.pl/anil-kumar-gupta/chirurg-onkolog/zgorzelec',
                 about: 'W roku 2017 odbyłem staż w Oddziale Chirurgii Onkologicznej I Dolnośląskiego Centrum Onkologii we Wrocławiu. W roku 2018 odbyłem staż w Oddziale Chirurgii Onkologicznej II Pododdziale Chirurgii Piersi Breast Unit we Wrocławiu.                Od 1993 leczę na Oddziale Chirurgii Ogólnej i Onkologicznej w Wielospecjalistycznym Szpitalu im. Jana Pawła II w Zgorzelcu. Pełnię tam funkcję zastępcy ordynatora. Jestem pracownikiem poradni chirurgii ogólnej i chirurgii onkologicznej. W ramach poradni onkologicznej od 3 lat prowadzę poradnię profilaktyki i leczenia raka piersi. Przyjmuję pacjentów w poradni onkologicznej w Łużyckim Centrum Medycznym w Żarach. Jestem również przewodniczącym komisji orzekającej o niepełnosprawności w Zgorzelcu.W pracy na co dzień zajmuj',
             },
             'radiologia' : {
+                fullName : 'radiologia',
                 list: ['badanie USG jamy brzusznej',
                         'badanie USG tarczycy',
                         'badanie USG piersi',
@@ -46,40 +48,49 @@ export const appData = {
                         'badanie USG przezciemiączkowe',
                         'badanie USG stawów biodrowych u dzieci',],
                         doctor: 'Maciej Sozański',
-                        gabinet: 'pn. i czw, od 14:00 do 21:00',
+                        doctorImg : sozanski,
+                        gabinet: 'podziałki i czwartki od 14:00 do 21:00',
                         recepcja: 'codziennie, oddzwaniamy w razie nie odebrania',
                         tel: '+48 720 833 338',
                         link: null,
+                        about: 'Od 1994 r. zajmuję się diagnostyką obrazową. Dziedziną, która najbardziej mnie interesuje w radiologii jest rezonans magnetyczny oraz badania naczyniowe w USG. Moją pasją są komputery. Staram się łączyć te dwa obszary wiedzy i wspomagać diagnostykę informatyką. Wykonuję badania USG jamy brzusznej, tarczycy, piersi, badania dopplerowskie, badania ortopedyczne i pediatryczne (przezciemiączkowe i stawów biodrowych).',
             },
             'ortopedia' : {
+                fullName : 'ortopedia',
                 list: ['endoprotezoplastyka biodra i kolana (pierwotna i rewizyjna)',
                         'zabiegi z zakresu chirurgi stawów kończyn',
                         'chirurgia urazowa kończyn i miednicy',],
-                        doctor: 'Andrzej Rosiek',
-                        gabinet: 'wt do czw',
-                        recepcja: ' od 10:00 do 12:00',
+                        doctor: 'Andrzej Rojek',
+                        doctorImg : rojek,
+                        gabinet: 'od wtorku do czwartku',
+                        recepcja: 'od 10:00 do 12:00',
                         tel: '+48 576 681 237',
                         link: null,
+                        about: 'Jestem chirurgiem ogólnym, specjalistą w ortopedii i traumatologii narządu ruchu. Mam 49 lat, a od 30 mieszkam na Dolnym Śląsku. Od 13 lat pracuję na Oddziale Ortopedii w Szpitalu im. Jana Pawła II w Zgorzelcu, który od 6 lat mam zaszczyt kierować. Studia ukończyłem w 1995 r. z najwyższym wyróżnieniem, po czym uczyłem się zawodu w szpitalach wojewódzkich w Jeleniej Górze i Wałbrzychu. Zrezygnowałem z kariery naukowej i pozostania we Wrocławiu dla pracy na rzecz ludzi, która sprawia mi ogromną przyjemność. Ukończyłem kilkadziesiąt kursów podyplomowych i uczestniczyłem w podobnej liczbie konferencji i szkoleń, w dużej mierze za granicą. Wiedzę tam nabytą wykorzystuję w pracy codziennej.',
             },
             'urologia' : {
+                fullName : 'urologia, onkologia i chirurgia',
                 list: ['operacje endoskopowe',
                         'duże zabiegi onkologiczne',
                         'zabiegi małoinwazyjne metodą laparoskopową',],
                         doctor: 'Jarosław Mazur',
-                        gabinet: 'śr od 18:00',
+                        doctorImg : mazur,
+                        gabinet: 'środy od 18:00',
                         recepcja: 'codziennie',
                         tel: '+48 75 67 14 200',
                         link: 'https://e-rejestracja.mp.pl/Tickets/d1ce38e5-bf27-407b-a7fc-4e20b2e9d653?resourceKind=0',
-            },
+                        about: 'Specjalista urolog. Specjalista chirurg ogólny. Po ukończeniu studiów medycznych we Wrocławiu pracowałem tamże w latach 1999-2007, specjalizując się w chirurgii ogólnej. Następnie przez ponad 12 lat szkoliłem w zakresie urologii w Niemczech. Moje spektrum zabiegowe obejmuje zarówno operacje endoskopowe, jak i duże zabiegi onkologiczne. Od 2019r. szkolę się na oddziale chirurgii ogólnej, trzewnej i naczyniowej Szpitala Maltańskiego St. Carolus w Görlitz, przede wszystkim w zabiegach koloproktologicznych. Preferuję zabiegi małoinwazyjne, metodą laparoskopową.',
+                    },
             'kardiologia' : {
-                list: ['serce',
-                        'naczynia',
-                        'intenista',],
+                fullName : 'kardiologia i internistyka',
+                list: ['konieczne byłoby uzupełnienie w podpunktach zakres oferowanych zabiegów + - oczywiście',],
                         doctor: 'Anna Jachowicz & Michał Olech',
-                        gabinet: 'różnie bywa',
-                        recepcja: 'śr od 16:00 do 19:00',
+                        doctorImg : null,
+                        gabinet: 'potrzeba sprecyzowania',
+                        recepcja: 'środy od 16:00 do 19:00',
                         tel: '+48 787 833 877',
                         link: null,
+                        about: null,
             },
         },
 

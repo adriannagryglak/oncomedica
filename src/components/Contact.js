@@ -4,11 +4,11 @@ export default function Contact(props) {
 
     return <section id="contact">
         <div className="contact-container">
-            <h2>skontaktujmy się</h2>
+            <h2>{props.h2}</h2>
             <ul className="contact-data">
                 <li>{props.data.title}</li>
                 <li>{props.data.email}</li>
-                <li className="li-btn"><a href="#offer">UMÓW WIZYTĘ</a></li>
+                <li className="li-btn"><a href="#offer">{props.btnText}</a></li>
                 <li>{props.data.street}</li>
                 <li>{props.data.city}</li>
             </ul>
