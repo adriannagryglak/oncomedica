@@ -26,7 +26,6 @@ function App() {
     setLanguage(lang)
   }
 
-
   //media queries & resize listener
   let biggerThan700 = useMediaPredicate('(min-width: 700px)');
   const flagStylesSmall = { width: '1.5rem', height: '1.5rem' };
@@ -38,7 +37,7 @@ function App() {
 
   return (
     <>
-      <header>
+    <header>
         {biggerThan992 && <Hero />}
         <Navbar isScreen={biggerThan992} lang={language} onClick={changeLanguage} data={data.sections} style={biggerThan700 ? flagStylesBig : flagStylesSmall}/>
         <h1>{data.h1}</h1>

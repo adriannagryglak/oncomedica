@@ -11,6 +11,8 @@ html {
   scroll-behavior: smooth;
 }
 
+
+
 section {
   background-color: #f7f7f7;
 }
@@ -370,6 +372,8 @@ button h3 {
   font-size: 1rem;
   border-radius: 50px;
   margin: 20px 0;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .wizyta:hover,
@@ -387,6 +391,7 @@ button h3 {
   padding: 15px;
   margin-top: 20px;
   display: inline-block;
+  border: 1px solid #0a646c;
 }
 
 .pop-up span {
