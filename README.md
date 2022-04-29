@@ -1,4 +1,7 @@
-# website for medical clinic Oncomedica in the making
+# website for medical clinic Oncomedica in Zgorzelec- (still in the making)
+
+created in React for learning purposes, 
+see live here : https://oncomedica-test-version.netlify.app/
 
 ## Getting Started with Create React App
 
